@@ -1,0 +1,11 @@
+{
+	"search.collapseResults": "auto",
+	"search.exclude": {
+		"assembly": true,
+		"build": true,
+		"yarn.lock": true
+	},
+	"files.exclude": {},
+	"debug.javascript.autoAttachFilter": "onlyWithFlag",
+	"typescript.tsdk": "./node_modules/typescript/lib"
+}

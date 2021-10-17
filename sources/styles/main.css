@@ -1,5 +1,28 @@
-.arabic-input{
+.main-input{
 	border: 1px solid gray;
 	font-size: 42px;
 	direction: rtl;
+}
+
+:root {
+/* CSS HEX #707070ff; */
+--c1: #e6194B;
+--c2: #4363d8;
+--h: #f58231;
+}
+.main-input > * {
+	transition: color 200ms;
+	cursor: pointer;
+}
+
+.main-input > :nth-child(1n+1){
+	color: var(--c1);
+}
+.main-input > :nth-child(2n+2){
+	color: var(--c2);
+}
+
+.main-input > :hover{
+	color: var(--h);
+	transition: 300ms;
 }
