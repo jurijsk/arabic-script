@@ -1,8 +1,8 @@
-.main-input{
-	border: 1px solid gray;
-	font-size: 42px;
-	direction: rtl;
+
+*, *::before, *::after {
+  box-sizing: border-box;
 }
+
 
 :root {
 /* CSS HEX #707070ff; */
@@ -10,8 +10,49 @@
 --c2: #4363d8;
 --h: #f58231;
 }
+
+.main-container {
+	width: 84%;
+	margin: 0 auto;
+	display: flex;
+}
+
+.main-panel {
+	flex: 1;
+	overflow: auto;
+}
+
+.instrument-panel {
+	background-color: honeydew;
+	width: 320px;
+	min-width: 320px;
+	flex: 0 0 320px;
+}
+
+.main-input{
+	font-size: 60px;
+	direction: rtl;
+	min-width: 100%;
+	width: fit-content;
+	border: 1px solid gray;
+	border-radius: 4px;
+	white-space: nowrap;
+	padding: 2px 6px;
+}
+
+.scaled-input {
+	font-size: 60px;
+	direction: rtl;
+	min-width: 100%;
+	width: fit-content;
+	background-color: lavender;
+	transform: scale(0.2);
+	display: none;
+}
+
+
 .main-input > * {
-	transition: color 200ms;
+	transition: 200ms;
 	cursor: pointer;
 }
 
@@ -25,4 +66,12 @@
 .main-input > :hover{
 	color: var(--h);
 	transition: 300ms;
+	padding: 0 3px;
+}
+
+.main-input > :first-child:hover{
+	padding-right: 0;
+}
+.main-input > :last-child:hover{
+	padding-left: 0;
 }

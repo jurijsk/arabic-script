@@ -9,6 +9,7 @@ class Main {
                 return;
             }
             input.addEventListener("input", this.onChanged.bind(this));
+            this.onChanged();
         }
     }
     onChanged = function onChanged() {

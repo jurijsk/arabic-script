@@ -12,9 +12,8 @@ class Main {
 				console.warn("no input found");
 				return;
 			}
-			
 			input.addEventListener("input", this.onChanged.bind(this));
-
+			this.onChanged();
 		}
 	}
 
