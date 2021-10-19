@@ -1,4 +1,16 @@
 import { DomUtils } from './Utils/DomUtils.js';
+class LetterMeta {
+    index;
+    letter;
+    element;
+    width;
+    constructor(index, letter, element, width) {
+        this.index = index;
+        this.letter = letter;
+        this.element = element;
+        this.width = width;
+    }
+}
 class Main {
     constructor() {
         DomUtils.docReady(init.bind(this));
@@ -10,6 +22,28 @@ class Main {
             }
             input.addEventListener("input", this.onChanged.bind(this));
             this.onChanged();
+        }
+    }
+    constructMeta(elements) {
+        let metas = new Array();
+        for (let i = 0; i < elements.length; i++) {
+            const element = elements[i];
+            let meta = new LetterMeta(i, element.innerText, element, element.getBoundingClientRect().width);
+            metas.push(meta);
+        }
+        return metas;
+    }
+    getIsolatedLettersContainer() {
+        return document.getElementById("isolatedLetters");
+    }
+    updateIsolatedLetters(metas) {
+        let container = this.getIsolatedLettersContainer();
+        container.textContent = '';
+        for (let i = 0; i < metas.length; i++) {
+            const meta = metas[i];
+            let element = this.createGlyphElement(meta.letter);
+            element.style.width = meta.width + 'px';
+            container.appendChild(element);
         }
     }
     onChanged = function onChanged() {
@@ -26,6 +60,10 @@ class Main {
             result.push(this.createGlyphElement(char));
         }
         input.replaceChildren(...result);
+        let meta = this.constructMeta(result);
+        this.updateIsolatedLetters(meta);
+        let last = input.lastChild;
+        document.getSelection()?.setBaseAndExtent(last, 1, last, 1);
         // for(let i = 0; i < children.length; i++) {
         // 	const child = children[i];
         // }

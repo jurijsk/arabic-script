@@ -9,6 +9,7 @@
 --c1: #e6194B;
 --c2: #4363d8;
 --h: #f58231;
+--vertical-space: 6px;
 }
 
 .main-container {
@@ -27,6 +28,23 @@
 	width: 320px;
 	min-width: 320px;
 	flex: 0 0 320px;
+
+	display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+}
+
+
+/* vertical dimensions */
+.main-input, .main-input-instruments{
+	font-size: 60px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	border: 1px solid transparent;
+}
+.main-input-instruments::after{
+	content: "\00a0";
 }
 
 .main-input{
@@ -37,7 +55,8 @@
 	border: 1px solid gray;
 	border-radius: 4px;
 	white-space: nowrap;
-	padding: 2px 6px;
+	padding-left:  var(--vertical-space);
+	padding-right:  var(--vertical-space);
 }
 
 .scaled-input {
@@ -46,8 +65,6 @@
 	min-width: 100%;
 	width: fit-content;
 	background-color: lavender;
-	transform: scale(0.2);
-	display: none;
 }
 
 
@@ -74,4 +91,34 @@
 }
 .main-input > :last-child:hover{
 	padding-left: 0;
+}
+
+.isolated-letters {
+	padding-left:  var(--vertical-space);
+	padding-right:  var(--vertical-space);
+	direction: rtl;
+    display: flex;
+	text-align: center;
+	font-size: 20px;
+}
+
+.main-input-instruments{
+	flex: 1 1 auto;
+    background-color: yellow;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+
+
+.toggle-button {
+	width: 40px;
+	height: 40px;
+	background-color: lightblue;
+	font-size: 24px;
+	text-align: center;
+	line-height: 40px;
+	cursor: pointer;
+
 }
