@@ -7,43 +7,60 @@ class LetterMeta {
 }
 
 class ArabicLetterMapping {
-	constructor(public letter: string, public translit: string, public desription?: string){
+	constructor(public code: number, public letter: string, public translit: string, public type = letter, public desription?: string){
 
 	}
 }
 type LetterMap = {
 	[key: string]: ArabicLetterMapping }
 const ArabicMap: LetterMap = {
-	'ا': new ArabicLetterMapping('ا', 'a'),
-	'ب': new ArabicLetterMapping('ب', 'b'),
-	'ت': new ArabicLetterMapping('ت', 't'),
-	'ث': new ArabicLetterMapping('ث', 'th'),
-	'ج': new ArabicLetterMapping('ج', 'j'),
-	'ح': new ArabicLetterMapping('ح', 'ḥ'),
-	'خ': new ArabicLetterMapping('خ', 'kh'),
-	'د': new ArabicLetterMapping('د', 'd'),
-	'ذ': new ArabicLetterMapping('ذ', 'dh'),
-	'ر': new ArabicLetterMapping('ر', 'r'),
-	'ز': new ArabicLetterMapping('ز', 'z'),
-	'س': new ArabicLetterMapping('س', 's'),
-	'ش': new ArabicLetterMapping('ش', 'sh'),
-	'ص': new ArabicLetterMapping('ص', 'ṣ'),
-	'ض': new ArabicLetterMapping('ض', 'ḍ'),
-	'ط': new ArabicLetterMapping('ط', 'ṭ'),
-	'ظ': new ArabicLetterMapping('ظ', 'ẓ'),
-	'ع': new ArabicLetterMapping('ع', '‘'),
-	'غ': new ArabicLetterMapping('غ', 'gh'),
-	'ف': new ArabicLetterMapping('ف', 'f'),
-	'ق': new ArabicLetterMapping('ق', 'q'),
-	'ك': new ArabicLetterMapping('ك', 'k'),
-	'ل': new ArabicLetterMapping('ل', 'l'),
-	'م': new ArabicLetterMapping('م', 'm'),
-	'ن': new ArabicLetterMapping('ن', 'n'),
-	'ة': new ArabicLetterMapping('ة', 'h'),
-	'و': new ArabicLetterMapping('و', 'w'),
-	'ي': new ArabicLetterMapping('ي', 'y'),
-	'ً': new ArabicLetterMapping('ً', '', 'an-nunation')
+	1575: new ArabicLetterMapping(1575, 'ا', 'a'),
+	1576: new ArabicLetterMapping(1576, 'ب', 'b'),
+	1578: new ArabicLetterMapping(1578, 'ت', 't'),
+	1579: new ArabicLetterMapping(1579, 'ث', 'th'),
+	1580: new ArabicLetterMapping(1580, 'ج', 'j'),
+	1581: new ArabicLetterMapping(1581, 'ح', 'ḥ'),
+	1582: new ArabicLetterMapping(1582, 'خ', 'kh'),
+	1583: new ArabicLetterMapping(1583, 'د', 'd'),
+	1584: new ArabicLetterMapping(1584, 'ذ', 'dh'),
+	1585: new ArabicLetterMapping(1585, 'ر', 'r'),
+	1586: new ArabicLetterMapping(1586, 'ز', 'z'),
+	1587: new ArabicLetterMapping(1587, 'س', 's'),
+	1588: new ArabicLetterMapping(1588, 'ش', 'sh'),
+	1589: new ArabicLetterMapping(1589, 'ص', 'ṣ'),
+	1590: new ArabicLetterMapping(1590, 'ض', 'ḍ'),
+	1591: new ArabicLetterMapping(1591, 'ط', 'ṭ'),
+	1592: new ArabicLetterMapping(1592, 'ظ', 'ẓ'),
+	1593: new ArabicLetterMapping(1593, 'ع', '‘'),
+	1594: new ArabicLetterMapping(1594, 'غ', 'gh'),
+	1601: new ArabicLetterMapping(1601, 'ف', 'f'),
+	1602: new ArabicLetterMapping(1602, 'ق', 'q'),
+	1603: new ArabicLetterMapping(1603, 'ك', 'k'),
+	1604: new ArabicLetterMapping(1604, 'ل', 'l'),
+	1605: new ArabicLetterMapping(1605, 'م', 'm'),
+	1606: new ArabicLetterMapping(1606, 'ن', 'n'),
+	1577: new ArabicLetterMapping(1577, 'ة', 'h'),
+	1608: new ArabicLetterMapping(1608, 'و', 'w'),
+
+	1610: new ArabicLetterMapping(1610, 'ي', 'y'),
+	
+	1611: new ArabicLetterMapping(1611, 'ً', 'an', 'nunation', 'an-nunation'), //FATHATAN
+	1612: new ArabicLetterMapping(1612, 'ً?', 'un', 'nunation', 'un-nunation'), //DAMMATAN
+	1613: new ArabicLetterMapping(1613, 'ً?', 'in', 'nunation', 'in-nunation'), //KASRATAN
+	
+	1614: new ArabicLetterMapping(1614, 'ً?', 'a', 'short-vowel-mark'), //FATHA
+	1615: new ArabicLetterMapping(1615, 'ً?', 'u', 'short-vowel-mark'), //DAMMA
+	1616: new ArabicLetterMapping(1616, 'ً?', 'i', 'short-vowel-mark'), //KASRA
 };
+
+
+for(const key in ArabicMap) {
+	if(Object.hasOwnProperty.call(ArabicMap, key)) {
+		const element = ArabicMap[key];
+		const code = element.letter.charCodeAt(0);
+		console.log(`${code}: new ArabicLetterMapping(${code}, '${element.letter}', '${element.translit}')`);
+	}
+}
 
 class Main {
 	updateTransliterationInput(metas: LetterMeta[]) {

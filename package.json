@@ -1,10 +1,15 @@
 {
-  "scripts": {
-    "start": "http-server --cors ."
-  },
-  "packageManager": "yarn@3.0.2",
-  "devDependencies": {
-    "http-server": "^13.0.2",
-    "typescript": "^4.4.4"
-  }
+	"scripts": {
+		"start": "http-server --cors .",
+		"build": "npx tsc -w"
+	},
+	"devDependencies": {
+		"http-server": "^14.1.1",
+		"typescript": "^5.2.2"
+	},
+	"name": "arabicscripttransliterator",
+	"version": "1.0.0",
+	"author": "",
+	"license": "ISC",
+	"description": ""
 }
