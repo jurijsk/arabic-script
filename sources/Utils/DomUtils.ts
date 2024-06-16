@@ -72,5 +72,16 @@ class DomUtilsClass {
 			});
 		}
 	}
+
+	isAncestor(parent: HTMLElement, ancestor: HTMLElement) {
+		let current = ancestor.parentElement;
+		while(current){
+			if(current == parent){
+				return true;
+			}
+			current = current.parentElement;
+		}
+		return false;
+	}
 }
 export const DomUtils = new DomUtilsClass();
