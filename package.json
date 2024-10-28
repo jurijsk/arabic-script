@@ -1,15 +1,24 @@
 {
-	"scripts": {
-		"start": "http-server --cors .",
-		"build": "npx tsc -w"
-	},
-	"devDependencies": {
-		"http-server": "^14.1.1",
-		"typescript": "^5.2.2"
-	},
-	"name": "arabicscripttransliterator",
-	"version": "1.0.0",
-	"author": "",
-	"license": "ISC",
-	"description": ""
+  "name": "arabic-transcript",
+  "private": true,
+  "version": "0.0.0",
+  "license": "ISC",
+  "type": "module",
+  "author": "jurijs.kovzels@outlook.com",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc && vite build",
+    "preview": "vite preview",
+	"http-server": "http-server ./.."
+  },
+  "dependencies": {
+    "vue": "^3.4.31"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.5",
+    "http-server": "^14.1.1",
+    "typescript": "^5.5.2",
+    "vite": "^5.3.2",
+    "vue-tsc": "^2.0.24"
+  }
 }
