@@ -1,11 +1,12 @@
-# Vue 3 + TypeScript + Vite
-
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
 
 
+### 02.01.2025
 
-## Recommended Setup
+preveous idea about copy paste did not worked because text looks fine and is searchable, but editors will not highlight ﻋﻔﻜﺮﺓ and عفكرة because they are comprised of different chars.  [65227, 65236, 65244, 65198, 65171] vs [1593, 1601, 1603, 1585, 1577].
 
-- [VS Code](https://code.visualstudio.com/) + [Vue - Official](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (previously Volar) and disable Vetur
+solution use `event.clipboardData.setData("text/plain", ...);` on `copy` event to remove `&zwj;`
 
-- Use [vue-tsc](https://github.com/vuejs/language-tools/tree/master/packages/tsc) for performing the same type checking from the command line, or for generating d.ts files for SFCs.
+
+### 01.01.2026
+
+we can make copy paste of arabic text seamless (e.g. mouse selection or double click), without additional js or handling if we will use special 'positioned' glyphs instead of generic symbols. Text will be searchable and will look fine.

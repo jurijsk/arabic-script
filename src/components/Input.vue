@@ -95,7 +95,7 @@ function onClick() {
 	<div class="main-input">
 		<input type="text" v-model="value" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
 			placeholder="Paste something in كتابة عربية, we will help you learn reading it." />
-		<div @pasxte="onPaste" @input="onInput" @clxick="onClick">
+		<div @paste="onPaste" @input="onInput" @clxick="onClick">
 			{{ value }}
 		</div>
 
