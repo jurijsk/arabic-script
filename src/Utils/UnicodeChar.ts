@@ -9,7 +9,7 @@ type LetterMap = {
 
 //https://www.unicodepedia.com/groups/arabic/
 
-export const ArabicMap: LetterMap = {
+export const ArabicScript: LetterMap = {
 	1575: new UnicodeChar(1575, 'ا', 'a', 'baseline'),
 	1576: new UnicodeChar(1576, 'ب', 'b', 'baseline'),
 	1577: new UnicodeChar(1577, 'ة', '-a, -t', 'baseline'), //this is not h this is ta-marbuta
